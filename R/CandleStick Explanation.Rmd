@@ -1,0 +1,60 @@
+---
+title: "Candle Stick Explanation"
+author: "Allan Brooks"
+date: "10/29/2017"
+output: html_document
+---
+##The Libraries needed for this markdown
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(quantmod)
+library(xts)
+library(zoo)
+library(PerformanceAnalytics)
+library(TTR)
+```
+
+## CandleSticks
+Candle Stick graphs bring more insight about the stock being analyze. Unlike the line and bar graph, the candle stick shows the open,close,low and high values.
+
+
+#This is the code for this demostration
+BAC is the symbol for Bank of America
+```{r cars}
+getSymbols('BAC', src='yahoo')
+```
+
+##This is what a candlestick graph looks like
+The purpose of candlestick graphs is to help stockholders strategize when to buy or sell a stock. There are two general strategies when it comes to the stock market(bull and bear market). Bull market is when a shareholder buys stocks when a particular stock is doing well. Bear market is when a shareholder buys a stock when a stock is not doing well.
+
+When using a candlestick graph to look at a stock, it will appear in two colors. One color will represent the value of the stock has increased and the other will represent the value of the stock has decreased. In this example, the green means up and the orange means down. 
+
+```{r, echo=FALSE}
+candleChart(BAC, subset='2017-09-01::2017-10-01')
+```
+
+##An example of a Bullish Market:
+
+The reason why people buy stocks when they are flourishing because there are companies that makes a shift in their business model and people are in favor of that change. This is the case with companies that offer a online service like Facebook and Alibaba. 
+
+```{r}
+#BABA is the symbol for Alibaba
+getSymbols('BABA', src='yahoo')
+candleChart(BABA, subset='2017-07-01::2017-08-01')
+```
+
+
+
+
+##An example of a Bearish Market:
+
+A reason why people may purchase a stock that is low is because they anticipate the value of the stock to go up. This is the case for companies that push out products. The example below is GroPro's stock value increasing due to releasing their lastest GroPro 5 camera. GroPro is a company that sell cameras and drones.
+
+```{r}
+getSymbols('GPRO', src='yahoo')
+candleChart(GPRO, subset='2017-09-01::2017-10-01')
+```
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
