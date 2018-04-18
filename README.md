@@ -1,2 +1,2 @@
 # Financial-Analysis
-Performing various analysis with data in the financial industry
+Performing various analysis with data in the financial industry in Python and R.
